@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GYM Fitness – Timings & Free Trial</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2ECC40;--black:#0A0A0A;--dark:#111;--card:#161616;--text:#F0F0F0;--muted:rgba(240,240,240,0.55);--border:rgba(46,204,64,0.22);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--text);}
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;   /* reduced from 30px */
+    margin:0 auto;
+    padding:0;
+    flex:1;
+}
+
+.nav-links a{
+    font-size:.78rem;
+    letter-spacing:1px;
+    padding:26px 0 22px;
+}
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem;
+    color:#E8A020;
+    text-decoration:none;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin:0 auto;
+    padding:0;
+    flex:1;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    position:relative;
+    color:rgba(253,246,227,0.75);
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.8rem;
+    letter-spacing:2px;
+    padding:26px 0 22px;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:14px;
+    width:0;
+    height:2px;
+    background:#E8A020;
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#E8A020;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-wa{
+    background:#D4830A;
+    color:#070707;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.75rem;
+    letter-spacing:1px;
+    padding:10px 18px;
+    border-radius:2px;
+    white-space:nowrap;
+    margin-left:20px;
+    flex-shrink:0;
+}
+
+.nav-wa:hover{
+    background:#B06A05;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#030303;
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+    nav{
+        height:64px;
+        padding:0 18px;
+    }
+
+    .nav-wa{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:64px;
+        left:0;
+        width:100%;
+        background:rgba(26,15,0,0.98);
+        flex-direction:column;
+        gap:0;
+        padding:12px 0;
+        border-top:1px solid rgba(212,131,10,0.18);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        padding:16px 0;
+    }
+
+    .nav-links a::after{
+        left:50%;
+        transform:translateX(-50%);
+        bottom:8px;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+        width:60px;
+    }
+}
+.nav-cta{background:var(--green);color:#000;padding:10px 22px;font-family:'Oswald',sans-serif;font-size:.82rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:600;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:.3s;}
+.nav-cta:hover{background:#26a834;}
+.page-banner{padding:140px 60px 80px;background:linear-gradient(135deg,#0A0A0A,#0D1F0F);position:relative;overflow:hidden;text-align:center;}
+.page-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(46,204,64,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(46,204,64,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.pb-label{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;}
+.pb-line{width:36px;height:2px;background:var(--green);}
+.pb-text{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:600;}
+.page-banner h1{font-family:'Oswald',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);text-transform:uppercase;line-height:1;position:relative;z-index:2;}
+.page-banner h1 span{color:var(--green);}
+.page-banner p{color:var(--muted);font-size:.96rem;max-width:500px;margin:14px auto 0;line-height:1.8;}
+section{padding:90px 60px;}
+.section-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.se-line{width:28px;height:2px;background:var(--green);}
+.se-text{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:600;}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(2rem,5vw,3.2rem);text-transform:uppercase;line-height:1;margin-bottom:40px;}
+
+/* TIMINGS */
+#timings{background:var(--dark);}
+.timings-inner{max-width:1200px;margin:0 auto;}
+.day-filter{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
+.df{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 20px;font-family:'Barlow',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s;font-weight:500;}
+.df.active,.df:hover{background:var(--green);color:#000;border-color:var(--green);}
+.batch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.batch{background:var(--card);border:1px solid var(--border);padding:22px 24px;display:flex;gap:20px;align-items:flex-start;transition:.3s;cursor:pointer;}
+.batch:hover{border-color:var(--green);}
+.batch-time{font-family:'Oswald',sans-serif;font-size:1.4rem;color:var(--green);line-height:1;white-space:nowrap;min-width:60px;}
+.batch-time small{font-size:.8rem;color:var(--muted);display:block;}
+.b-info h4{font-family:'Oswald',sans-serif;font-size:.96rem;letter-spacing:1px;margin-bottom:4px;}
+.b-info p{font-size:.82rem;color:var(--muted);line-height:1.55;}
+.b-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.b-tag{background:rgba(46,204,64,0.08);border:1px solid var(--border);color:var(--green);padding:2px 9px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;}
+.b-tag.full{background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#ef4444;}
+.b-tag.hot{background:rgba(232,160,32,0.1);border-color:rgba(232,160,32,0.3);color:#e8a020;}
+
+/* BOOKING FORM */
+#booking{background:var(--black);}
+.booking-inner{max-width:900px;margin:0 auto;}
+.booking-note{background:rgba(46,204,64,0.07);border:1px solid var(--border);padding:20px 24px;margin-bottom:40px;display:flex;gap:14px;align-items:flex-start;}
+.note-icon{font-size:1.4rem;flex-shrink:0;}
+.note-text p{font-size:.88rem;color:var(--muted);line-height:1.7;}
+.note-text strong{color:var(--green);}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:8px;}
+.fg.full{grid-column:span 2;}
+.fg label{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:600;}
+.fg input,.fg select{background:var(--card);border:1px solid var(--border);color:var(--text);padding:13px 16px;font-family:'Barlow',sans-serif;font-size:.92rem;outline:none;transition:.3s;}
+.fg input:focus,.fg select:focus{border-color:var(--green);}
+.fg select option{background:var(--dark);}
+.submit-btn{grid-column:span 2;background:var(--green);color:#000;border:none;padding:16px;font-family:'Oswald',sans-serif;font-size:.96rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.3s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);}
+.submit-btn:hover{background:#26a834;}
+
+/* LOCATION */
+#location{background:var(--dark);}
+.loc-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.loc-details{display:flex;flex-direction:column;gap:0;}
+.ld{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
+.ld:last-child{border-bottom:none;}
+.ld-icon{font-size:1.3rem;flex-shrink:0;}
+.ld-body h4{font-family:'Oswald',sans-serif;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
+.ld-body p{font-size:.87rem;color:var(--muted);line-height:1.65;}
+.loc-map{background:linear-gradient(160deg,#1A3020,#0D1A10);border:1px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(46,204,64,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(46,204,64,0.07) 1px,transparent 1px);background-size:40px 40px;}
+.map-pin{position:absolute;font-size:3rem;animation:pinB 2s ease-in-out infinite;}
+@keyframes pinB{0%,100%{transform:translateY(-10px)}50%{transform:translateY(-20px)}}
+
+footer{background:#050505;border-top:1px solid var(--border);padding:36px 60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;}
+.footer-logo{font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--green);letter-spacing:2px;}
+.footer-logo span{color:var(--text);}
+.footer-nav{display:flex;gap:24px;}
+.footer-nav a{color:rgba(240,240,240,0.35);text-decoration:none;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;}
+.footer-nav a:hover{color:var(--green);}
+.footer-text{color:rgba(240,240,240,0.25);font-size:.78rem;text-align:right;}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}.page-banner{padding:100px 20px 60px;}section{padding:60px 20px;}.booking-form{grid-template-columns:1fr;}.fg.full,.submit-btn{grid-column:span 1;}.loc-inner{grid-template-columns:1fr;}.loc-map{display:none;}footer{grid-template-columns:1fr;text-align:center;padding:28px 20px;}.footer-nav{justify-content:center;}.footer-text{text-align:center;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">GYM</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html">Trainers</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="booking.html" class="active">Timings & Trial</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Free Trial</a>
+</nav>
+
+<div class="page-banner">
+  <div class="pb-label"><div class="pb-line"></div><span>Batch Timings & Trial Booking</span><div class="pb-line"></div></div>
+  <h1>FIND YOUR <span>BATCH</span></h1>
+  <p>8 daily training slots across disciplines. Check what's available and claim your free trial class below.</p>
+</div>
+
+<!-- TIMINGS -->
+<section id="timings">
+  <div class="timings-inner">
+    <div class="section-eyebrow"><div class="se-line"></div><span>Daily Schedule</span></div>
+    <h2 class="section-title">BATCH TIMINGS<br>ALL WEEK</h2>
+    <div class="day-filter">
+      <button class="df active">All Days</button>
+      <button class="df">Mon – Fri</button>
+      <button class="df">Saturday</button>
+      <button class="df">Sunday</button>
+    </div>
+    <div class="batch-grid">
+      <div class="batch"><div class="batch-time">5:30<small>AM</small></div><div class="b-info"><h4>Early Bird Strength</h4><p>Powerlifting & Olympic lifting for serious athletes. Max 15 members.</p><div class="b-tags"><span class="b-tag">Strength</span><span class="b-tag hot">Popular</span></div></div></div>
+      <div class="batch"><div class="batch-time">6:30<small>AM</small></div><div class="b-info"><h4>HIIT Cardio Blast</h4><p>45-min high-intensity circuit to kickstart your day. All fitness levels.</p><div class="b-tags"><span class="b-tag">HIIT</span><span class="b-tag full">Usually Full</span></div></div></div>
+      <div class="batch"><div class="batch-time">8:00<small>AM</small></div><div class="b-info"><h4>Morning Yoga & Mobility</h4><p>Flexibility, mindfulness, and joint health. Perfect for all ages.</p><div class="b-tags"><span class="b-tag">Yoga</span></div></div></div>
+      <div class="batch"><div class="batch-time">11:00<small>AM</small></div><div class="b-info"><h4>Open Gym – Trainer on Floor</h4><p>Self-directed training with a certified trainer on the floor for guidance.</p><div class="b-tags"><span class="b-tag">Open Gym</span></div></div></div>
+      <div class="batch"><div class="batch-time">4:00<small>PM</small></div><div class="b-info"><h4>Boxing Fitness</h4><p>Combat conditioning, bag work, and agility drills. No experience needed.</p><div class="b-tags"><span class="b-tag">Combat</span><span class="b-tag hot">High Energy</span></div></div></div>
+      <div class="batch"><div class="batch-time">5:30<small>PM</small></div><div class="b-info"><h4>Women's Fitness Special</h4><p>Mon, Wed, Fri only. Circuit training designed for women's specific goals.</p><div class="b-tags"><span class="b-tag">Women's</span><span class="b-tag full">Usually Full</span></div></div></div>
+      <div class="batch"><div class="batch-time">6:30<small>PM</small></div><div class="b-info"><h4>Evening Strength</h4><p>Popular evening strength session. Limited to 20 members per batch.</p><div class="b-tags"><span class="b-tag">Strength</span><span class="b-tag hot">Top Batch</span></div></div></div>
+      <div class="batch"><div class="batch-time">8:00<small>PM</small></div><div class="b-info"><h4>Functional & Athletic</h4><p>Movement patterns, agility ladders, and athletic conditioning to close the day.</p><div class="b-tags"><span class="b-tag">Functional</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking">
+  <div class="booking-inner">
+    <div class="section-eyebrow"><div class="se-line"></div><span>Free Trial Class</span></div>
+    <h2 class="section-title">CLAIM YOUR<br><span style="color:var(--green)">FREE TRIAL</span></h2>
+    <div class="booking-note">
+      <div class="note-icon">⚡</div>
+      <div class="note-text"><p><strong>No commitment. No payment required.</strong> Simply fill in your details, pick a batch, and show up. We'll take care of the rest. Your first class is completely free — no strings attached.</p></div>
+    </div>
+    <div class="booking-form">
+      <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="fg"><label>Preferred Date</label><input type="date"></div>
+      <div class="fg"><label>Preferred Batch</label>
+        <select>
+          <option>5:30 AM – Early Bird Strength</option>
+          <option>6:30 AM – HIIT Cardio Blast</option>
+          <option>8:00 AM – Morning Yoga</option>
+          <option>11:00 AM – Open Gym</option>
+          <option>4:00 PM – Boxing Fitness</option>
+          <option>5:30 PM – Women's Fitness</option>
+          <option>6:30 PM – Evening Strength</option>
+          <option>8:00 PM – Functional & Athletic</option>
+        </select>
+      </div>
+      <div class="fg"><label>Fitness Goal</label>
+        <select><option>Weight Loss</option><option>Muscle Gain</option><option>General Fitness</option><option>Athletic Performance</option><option>Stress Relief</option><option>Flexibility</option></select>
+      </div>
+      <div class="fg"><label>Current Fitness Level</label>
+        <select><option>Complete Beginner</option><option>Some Experience</option><option>Intermediate</option><option>Advanced Athlete</option></select>
+      </div>
+      <button class="submit-btn" onclick="alert('Free trial booked! ⚡ Our team will call you within 2 hours to confirm your batch slot.')">BOOK FREE TRIAL CLASS →</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="loc-inner">
+    <div>
+      <div class="section-eyebrow"><div class="se-line"></div><span>Find Us</span></div>
+      <h2 class="section-title">VISIT<br>GYM</h2>
+      <div class="loc-details">
+        <div class="ld"><div class="ld-icon">📍</div><div class="ld-body"><h4>Address</h4><p>Plot 8A, Industrial Area Road<br><br></p></div></div>
+        <div class="ld"><div class="ld-icon">🕐</div><div class="ld-body"><h4>Open Hours</h4><p>Monday – Saturday: 5:00 AM – 10:00 PM<br>Sunday: 6:00 AM – 8:00 PM</p></div></div>
+        <div class="ld"><div class="ld-icon">📞</div><div class="ld-body"><h4>Contact</h4><p>+91 XXXXX XXXXX (Membership)<br>+91 XXXXX XXXXX (WhatsApp)</p></div></div>
+        <div class="ld"><div class="ld-icon">🚗</div><div class="ld-body"><h4>Parking</h4><p>Free dedicated parking for 40 vehicles.<br>Bike parking available at the entrance.</p></div></div>
+      </div>
+    </div>
+    <div class="loc-map">
+      <div class="map-grid"></div>
+      <div class="map-pin">📍</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">GYM</span> FITNESS</div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="trainers.html">Trainers</a><a href="membership.html">Plans</a><a href="booking.html">Book Trial</a>
+  </nav>
+  <div class="footer-text">© 2025GYM Fitness · </div>
+</footer>
+<script>
+document.querySelectorAll('.df').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.df').forEach(b=>b.classList.remove('active'));this.classList.add('active');});});
+</script>
+</body>
+</html>

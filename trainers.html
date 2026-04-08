@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GYM Fitness – Trainers</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2ECC40;--black:#0A0A0A;--dark:#111;--card:#161616;--text:#F0F0F0;--muted:rgba(240,240,240,0.55);--border:rgba(46,204,64,0.22);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--text);}
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;   /* reduced from 30px */
+    margin:0 auto;
+    padding:0;
+    flex:1;
+}
+
+.nav-links a{
+    font-size:.78rem;
+    letter-spacing:1px;
+    padding:26px 0 22px;
+}
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem;
+    color:#E8A020;
+    text-decoration:none;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin:0 auto;
+    padding:0;
+    flex:1;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    position:relative;
+    color:rgba(253,246,227,0.75);
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.8rem;
+    letter-spacing:2px;
+    padding:26px 0 22px;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:14px;
+    width:0;
+    height:2px;
+    background:#E8A020;
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#E8A020;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-wa{
+    background:#D4830A;
+    color:#070707;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.75rem;
+    letter-spacing:1px;
+    padding:10px 18px;
+    border-radius:2px;
+    white-space:nowrap;
+    margin-left:20px;
+    flex-shrink:0;
+}
+
+.nav-wa:hover{
+    background:#B06A05;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#030303;
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+    nav{
+        height:64px;
+        padding:0 18px;
+    }
+
+    .nav-wa{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:64px;
+        left:0;
+        width:100%;
+        background:rgba(26,15,0,0.98);
+        flex-direction:column;
+        gap:0;
+        padding:12px 0;
+        border-top:1px solid rgba(212,131,10,0.18);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        padding:16px 0;
+    }
+
+    .nav-links a::after{
+        left:50%;
+        transform:translateX(-50%);
+        bottom:8px;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+        width:60px;
+    }
+}
+.nav-cta{background:var(--green);color:#000;padding:10px 22px;font-family:'Oswald',sans-serif;font-size:.82rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;font-weight:600;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:.3s;}
+.nav-cta:hover{background:#26a834;}
+.page-banner{padding:140px 60px 80px;background:linear-gradient(135deg,#0A0A0A,#0D1F0F);position:relative;overflow:hidden;text-align:center;}
+.page-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(46,204,64,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(46,204,64,0.05) 1px,transparent 1px);background-size:60px 60px;}
+.pb-label{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;}
+.pb-line{width:36px;height:2px;background:var(--green);}
+.pb-text{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:600;}
+.page-banner h1{font-family:'Oswald',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);text-transform:uppercase;line-height:1;position:relative;z-index:2;}
+.page-banner h1 span{color:var(--green);}
+.page-banner p{color:var(--muted);font-size:.96rem;max-width:500px;margin:14px auto 0;line-height:1.8;}
+section{padding:90px 60px;}
+.section-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.se-line{width:28px;height:2px;background:var(--green);}
+.se-text{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:600;}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(2rem,5vw,3.2rem);text-transform:uppercase;line-height:1;margin-bottom:40px;}
+
+/* TRAINER CARDS */
+#trainers{background:var(--dark);}
+.trainers-inner{max-width:1200px;margin:0 auto;}
+.trainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.tc{background:var(--card);border:1px solid var(--border);overflow:hidden;transition:.3s;}
+.tc:hover{border-color:var(--green);transform:translateY(-4px);}
+.tc-img{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;}
+.tc-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,var(--card),transparent);}
+.tc-body{padding:22px;}
+.tc-name{font-family:'Oswald',sans-serif;font-size:1.3rem;letter-spacing:1px;margin-bottom:4px;}
+.tc-role{color:var(--green);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
+.tc-bio{font-size:.84rem;color:var(--muted);line-height:1.68;margin-bottom:16px;}
+.tc-certs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.cert{background:rgba(46,204,64,0.08);border:1px solid var(--border);color:var(--text);padding:3px 10px;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;}
+.tc-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);}
+.tc-stat{padding:12px 16px;border-right:1px solid var(--border);}
+.tc-stat:last-child{border-right:none;}
+.tc-stat .ts-num{font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--green);}
+.tc-stat .ts-label{font-size:.68rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+/* COACH PHILOSOPHY */
+#philosophy{background:var(--black);}
+.phi-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.phi-box{aspect-ratio:4/3;background:linear-gradient(160deg,#1A3020,#0D1A10);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:6rem;}
+.phi-text p{color:var(--muted);line-height:1.82;margin-bottom:18px;font-size:.95rem;}
+.phi-quote{border-left:3px solid var(--green);padding:16px 22px;background:rgba(46,204,64,0.05);margin:24px 0;}
+.phi-quote p{font-family:'Oswald',sans-serif;font-size:1.05rem;font-style:normal;letter-spacing:.5px;color:var(--text);line-height:1.5;}
+.phi-quote cite{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);display:block;margin-top:8px;}
+
+/* JOIN CTA */
+#join-cta{padding:70px 60px;background:linear-gradient(135deg,#0D1F0F,#111);text-align:center;}
+.join-inner h2{font-family:'Oswald',sans-serif;font-size:clamp(2rem,5vw,3rem);text-transform:uppercase;margin-bottom:14px;}
+.join-inner h2 span{color:var(--green);}
+.join-inner p{color:var(--muted);font-size:.95rem;max-width:500px;margin:0 auto 32px;line-height:1.75;}
+.join-inner a{background:var(--green);color:#000;padding:13px 36px;font-family:'Oswald',sans-serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;display:inline-block;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:.3s;}
+.join-inner a:hover{background:#26a834;}
+
+footer{background:#050505;border-top:1px solid var(--border);padding:36px 60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;}
+.footer-logo{font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--green);letter-spacing:2px;}
+.footer-logo span{color:var(--text);}
+.footer-nav{display:flex;gap:24px;}
+.footer-nav a{color:rgba(240,240,240,0.35);text-decoration:none;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;}
+.footer-nav a:hover{color:var(--green);}
+.footer-text{color:rgba(240,240,240,0.25);font-size:.78rem;text-align:right;}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}.page-banner{padding:100px 20px 60px;}section,#join-cta{padding:60px 20px;}.trainer-grid{grid-template-columns:1fr;}.phi-inner{grid-template-columns:1fr;}.phi-box{display:none;}footer{grid-template-columns:1fr;text-align:center;padding:28px 20px;}.footer-nav{justify-content:center;}.footer-text{text-align:center;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">GYM</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trainers.html" class="active">Trainers</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="booking.html">Timings & Trial</a></li>
+  </ul>
+  <a href="booking.html" class="nav-cta">Free Trial</a>
+</nav>
+
+<div class="page-banner">
+  <div class="pb-label"><div class="pb-line"></div><span>Trainer Profiles</span><div class="pb-line"></div></div>
+  <h1>MEET YOUR <span>COACHES</span></h1>
+  <p>Certified, experienced, and genuinely invested in your progress. Our trainers don't just coach — they transform.</p>
+</div>
+
+<section id="trainers">
+  <div class="trainers-inner">
+    <div class="section-eyebrow"><div class="se-line"></div><span>Expert Team</span></div>
+    <h2 class="section-title">THE PEOPLE WHO<br>PUSH YOU HARDER</h2>
+    <div class="trainer-grid">
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A3020,#0D1A10);">🏋️</div>
+        <div class="tc-body">
+          <div class="tc-name">Arjun Hegde</div>
+          <div class="tc-role">Head Strength Coach</div>
+          <p class="tc-bio">NSCA-CSCS certified with 8 years in competitive powerlifting. Arjun specialises in progressive overload programming and is the architect behindGYM's signature strength curriculum.</p>
+          <div class="tc-certs"><span class="cert">NSCA-CSCS</span><span class="cert">Powerlifting</span><span class="cert">Nutrition</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">8 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">120+</div><div class="ts-label">Clients Trained</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A2A20,#0D1510);">🏃</div>
+        <div class="tc-body">
+          <div class="tc-name">Priya Kulkarni</div>
+          <div class="tc-role">HIIT & Women's Specialist</div>
+          <p class="tc-bio">ACE certified trainer with a background in sports science. Priya has pioneered our women's fitness programs and runs the most popular HIIT batch at the gym — consistently overbooked.</p>
+          <div class="tc-certs"><span class="cert">ACE Certified</span><span class="cert">HIIT</span><span class="cert">Women's Fitness</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">5 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">200+</div><div class="ts-label">Clients Trained</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A2015,#0D150A);">🥊</div>
+        <div class="tc-body">
+          <div class="tc-name">Rohan Patil</div>
+          <div class="tc-role">Combat & Functional Fitness</div>
+          <p class="tc-bio">Former state-level amateur boxer and MMA practitioner. Rohan's classes are a cult favourite — part fitness, part fight training, all intensity. Perfect for stress relief and athletic conditioning.</p>
+          <div class="tc-certs"><span class="cert">Boxing Coach</span><span class="cert">MMA</span><span class="cert">Functional</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">6 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">90+</div><div class="ts-label">Clients Trained</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A251A,#0D1A0D);">🧘</div>
+        <div class="tc-body">
+          <div class="tc-name">Ananya Desai</div>
+          <div class="tc-role">Yoga & Recovery Specialist</div>
+          <p class="tc-bio">500-hour RYT certified yoga teacher with additional training in sports recovery and mobility. Ananya's sessions are the most underrated part of any serious athlete's routine.</p>
+          <div class="tc-certs"><span class="cert">RYT-500</span><span class="cert">Mobility</span><span class="cert">Recovery</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">4 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">80+</div><div class="ts-label">Clients Trained</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A1F10,#0D1508);">🥗</div>
+        <div class="tc-body">
+          <div class="tc-name">Karan Mehta</div>
+          <div class="tc-role">Sports Nutritionist</div>
+          <p class="tc-bio">MSc in Sports Nutrition with practical experience working with amateur athletes and weight-management clients. Karan bridges the gap between training and eating right.</p>
+          <div class="tc-certs"><span class="cert">MSc Nutrition</span><span class="cert">Sports Diet</span><span class="cert">Supplements</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">3 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">60+</div><div class="ts-label">Clients Advised</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-img" style="background:linear-gradient(160deg,#1A1A20,#0D0D18);">🚴</div>
+        <div class="tc-body">
+          <div class="tc-name">Shreya Naik</div>
+          <div class="tc-role">Cardio & Endurance Coach</div>
+          <p class="tc-bio">Marathon runner and spin instructor. Shreya's cardio conditioning programs have helped dozens of members complete their first 5K and 10K races withGYM's running club.</p>
+          <div class="tc-certs"><span class="cert">Spin Certified</span><span class="cert">Endurance</span><span class="cert">Running</span></div>
+          <div class="tc-stats">
+            <div class="tc-stat"><div class="ts-num">4 Yrs</div><div class="ts-label">Experience</div></div>
+            <div class="tc-stat"><div class="ts-num">75+</div><div class="ts-label">Clients Trained</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy">
+  <div class="phi-inner">
+    <div class="phi-box">🎯</div>
+    <div class="phi-text">
+      <div class="section-eyebrow"><div class="se-line"></div><span>Our Coaching Philosophy</span></div>
+      <h2 class="section-title">COACH LIKE<br>YOU MEAN IT</h2>
+      <p>EveryGYM trainer goes through our internal certification process before they touch a client's program. That means hands-on assessment testing, programming workshops, and real-world supervised coaching hours.</p>
+      <p>We don't hire instructors who just demo exercises. We hire coaches who understand human physiology, can spot a movement dysfunction, and know how to build long-term athlete relationships.</p>
+      <div class="phi-quote">
+        <p>"A great trainer changes what's possible for a person — not just how they look."</p>
+        <cite>— Vikram Shetty, Founder</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join-cta">
+  <div class="join-inner">
+    <h2>TRAIN WITH OUR <span>BEST</span></h2>
+    <p>Book a free trial class and get matched with the trainer best suited to your goals. Zero commitment, maximum value.</p>
+    <a href="booking.html">Book Your Free Trial →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">GYM</span> FITNESS</div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="trainers.html">Trainers</a><a href="membership.html">Plans</a><a href="booking.html">Book Trial</a>
+  </nav>
+  <div class="footer-text">© 2025GYM Fitness · </div>
+</footer>
+</body>
+</html>
